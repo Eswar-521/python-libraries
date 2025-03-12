@@ -102,18 +102,18 @@ import sys
 def add2nums(n1, n2):
     print(n1 + n2)
 ```
-#### 1. Directly Call with values in the script
+#### Directly Call with values in the script
 ```python
 add2nums(n1=100, n2=33)
 ```
-#### 2. Get values using input(),
+#### Get values using input(),
 #### REMEMBER input data is all STRINGS, Convert to the required datatype
 ```python
 in_n1 = int(input("Enter value for n1: "))
 in_n2 = int(input("Enter value for n2: "))
 add2nums(n1=in_n1, n2=in_n2)
 ```
-#### 3. Get values using command-line arguments
+#### Get values using command-line arguments
 #### REMEMBER sys.argv LIST data is all STRINGS, Convert to the required datatype
 ```python
 inputs = sys.argv
