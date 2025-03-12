@@ -16,28 +16,28 @@ from email import encoders
 import configparser
 import os
 ```
-# Directory where the files are stored
+### Directory where the files are stored
 ```python
 data_dir = 'E:/python-master/media/003-python-modules/'
 ```
-# Load the configuration from file
+### Load the configuration from file
 ```python
 config = configparser.ConfigParser()
 config.read('config.ini')
 ```
-# Get the Gmail username and password from the configuration
+### Get the Gmail username and password from the configuration
 ```python
 gmail_user = config.get('Gmail', 'username')
 gmail_password = config.get('Gmail', 'password')
 ```
 
-# Create sender and receiver
+### Create sender and receiver
 ```python
 attachment_sender = 'tinitiate.training@gmail.com'
 attachment_receiver = ['tinitiate@gmail.com', 'tinitiate.training@gmail.com']
 ```
 
-# Create message object
+### Create message object
 ```python
 attachment_msg = MIMEMultipart()
 attachment_msg['From'] = attachment_sender
@@ -45,11 +45,11 @@ attachment_msg['To'] = ", ".join(attachment_receiver)
 attachment_msg['Subject'] = 'Python Attachment Test Email'
 ```
 
-# List of files to attach
+### List of files to attach
 ```python
 files = [data_dir + "myfile.txt", data_dir + "image1.gif", data_dir + "music1.mp3"]
 ```
-# Attach each file
+### Attach each file
 ```python
 for f in files:
     part = MIMEBase('application', "octet-stream")
@@ -59,7 +59,7 @@ for f in files:
     attachment_msg.attach(part)
 ```
 
-# Create an SMTP connection
+### Create an SMTP connection
 ```python
 s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 s.login(gmail_user, gmail_password)
@@ -70,9 +70,9 @@ s.quit()
 
 
 
-# Sending Emails with Python (SMTP)
+### Sending Emails with Python (SMTP)
 
-## Import Required Modules
+### Import Required Modules
 ```python
 # Import smtplib for sending emails
 import smtplib, os
@@ -90,23 +90,23 @@ import configparser
 import os
 ```
 
-## Load Configuration from config.ini
+### Load Configuration from config.ini
 ```python
-# Load the configuration from file
+### Load the configuration from file
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-# Get the Gmail username and password from the configuration
+### Get the Gmail username and password from the configuration
 gmail_user = config.get('Gmail', 'username')
 gmail_password = config.get('Gmail', 'password')
 ```
 
 ```python
-# Define sender and receiver email addresses
+### Define sender and receiver email addresses
 sender = 'tinitiate.training@gmail.com'
 receiver = ['tinitiate@gmail.com', 'tinitiate.training@gmail.com']
 ```
-# Create message object
+### Create message object
 ```python
 msg = MIMEMultipart('alternative')
 msg['From'] = sender
@@ -114,20 +114,20 @@ msg['To'] = ", ".join(receiver)
 msg['Subject'] = "This is a TINITIATE test EMAIL"
 ```
 
-# Establish SMTP connection and login
+### Establish SMTP connection and login
 ```python
 s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 s.ehlo()
 s.login(gmail_user, gmail_password)
 
-# Send the email
+### Send the email
 s.sendmail(sender, receiver, msg.as_string())
 
-# Close SMTP connection after sending
+### Close SMTP connection after sending
 s.quit()
 ```
 
-## Configuration File (config.ini) Example
+### Configuration File (config.ini) Example
 ```python
 [Gmail]
 username = your-email@gmail.com
@@ -144,7 +144,7 @@ password = your-app-password
 
 
 
-## Sending Emails with Attachments in Python
+### Sending Emails with Attachments in Python
 
 This Python script demonstrates how to send emails with both **plain text** and **HTML content** using the `smtplib` and `email` modules. It retrieves Gmail credentials from a configuration file (`config.ini`) and sends an email to multiple recipients.
 
@@ -161,31 +161,31 @@ from email.mime.text import MIMEText
 import configparser
 import os
 ```
-# Load configuration from file
+### Load configuration from file
 ```python
 config = configparser.ConfigParser()
 config.read('config.ini')
 ```
-# Get Gmail credentials
+### Get Gmail credentials
 ```python
 gmail_user = config.get('Gmail', 'username')
 gmail_password = config.get('Gmail', 'password')
 ```
 
-# Define sender and receiver
+### Define sender and receiver
 ```python
 sender = 'tinitiate.training@gmail.com'
 receiver = ['tinitiate@gmail.com', 'tinitiate.training@gmail.com']
 ```
 
-# Create a MIME message
+### Create a MIME message
 ```python
 msg = MIMEMultipart('alternative')
 msg['From'] = sender 
 msg['To'] = ", ".join(receiver)
 msg['Subject'] = "This is a TINITIATE test EMAIL"
 ```
-# Email body (plain text and HTML)
+### Email body (plain text and HTML)
 ```python
 plain_text = "This is plain text"
 html_text = """\
@@ -199,7 +199,7 @@ html_text = """\
 </html>
 """
 ```
-# Attach plain text and HTML parts
+### Attach plain text and HTML parts
 ```python
 plain_message = MIMEText(plain_text, 'plain')
 html_message = MIMEText(html_text, 'html')
@@ -207,7 +207,7 @@ msg.attach(plain_message)
 msg.attach(html_message)
 ```
 
-# Establish SMTP connection and send email
+### Establish SMTP connection and send email
 ```python
 s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 s.ehlo()
@@ -218,14 +218,14 @@ s.quit()
 
 # Steps to Run 
 
-## 1 Create a config.ini file in the same directory:
+### 1 Create a config.ini file in the same directory:
 ```python
 [Gmail]
 username = your-email@gmail.com
 password = your-app-password
 ```
 
-## 2 Run the script:
+### 2 Run the script:
 ```python
 python send_email.py
 ```
