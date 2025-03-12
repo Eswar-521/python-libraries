@@ -1,28 +1,28 @@
-Title: python iterators and generators
-MetaDescription: python regular, expressions, code, tutorials
-Author: Venkata Bhattaram / tinitiate.com
-ContentName: python-regular-expressions
+## Title: python iterators and generators
+## MetaDescription: python regular, expressions, code, tutorials
+## Author: Venkata Bhattaram / tinitiate.com
+## ContentName: python-regular-expressions
 ---
 
-# PYTHON REGULAR EXPRESSIONS BASICS
-* Regular Expressions are string patterns to search in other strings
-* PYTHON Regular Expressions, functionality is provided by the "re" MODULE
-* The "re" Module provides all the functions required to enable PYTHONs
-  regular expressions
-* Regular expressions is all about matching a "pattern" in a "string"
-* **search()** function, returns true or false for the string found / not found
-* **findall()** function, returns a TUPLE of all occurrences of the pattern
-* **sub()** function, This is used to replace parts of strings, with a pattern
-* **split()** function, separates a string by space or any delimiter.
+### PYTHON REGULAR EXPRESSIONS BASICS
+### Regular Expressions are string patterns to search in other strings
+### PYTHON Regular Expressions, functionality is provided by the "re" MODULE
+### The "re" Module provides all the functions required to enable PYTHONs
+     regular expressions
+### Regular expressions is all about matching a "pattern" in a "string"
+### search()** function, returns true or false for the string found / not found
+### findall()** function, returns a TUPLE of all occurrences of the pattern
+### sub()** function, This is used to replace parts of strings, with a pattern
+### split()** function, separates a string by space or any delimiter.
 
 ```python
-# 1) search Function
+### 1) search Function
 import re
 ```
-# Create a test string with repeating letters words
+### Create a test string with repeating letters words
 - test_string = "The Test string 123 121212 tinitiate TINITIATE a1b2c3"
 
-# Search for pattern: tinitiate (in SMALL LETTERS)
+### Search for pattern: tinitiate (in SMALL LETTERS)
 - match = re.search(r'tinitiate', test_string)
 ```python
 if match:
@@ -30,8 +30,8 @@ if match:
 else:
     print("The word 'tinitiate' is NOT found in the string:", "\n", test_string)
 ```
-# Search for more complicated patterns, search for 12*, where *
-# is wildcard character, match everything else after the pattern "12"
+### Search for more complicated patterns, search for 12*, where *
+### is wildcard character, match everything else after the pattern "12"
 ```python
 match = re.search(r'12*', test_string)
 
@@ -40,53 +40,53 @@ if match:
 else:
     print("The word '12*' is NOT found in the string:", "\n", test_string)
 ```
-# 2 findall Function
+### 2 findall Function
 ```python
 import re
 ```
-# Prints all the WORDS with a SMALL "t" in the test-string
-# The options are:
-# word with a "t" in between \w+t\w+,
-# OR indicated by the PIPE symbol |
-# word with a "t" as the last character \w+t,
-# OR indicated by the PIPE symbol |
-# word with a "t" as the first character t\w+,
+### Prints all the WORDS with a SMALL "t" in the test-string
+### The options are:
+### word with a "t" in between \w+t\w+,
+### OR indicated by the PIPE symbol |
+### word with a "t" as the last character \w+t,
+### OR indicated by the PIPE symbol |
+### word with a "t" as the first character t\w+,
 
-# Create a test string with repeating letters words
+### Create a test string with repeating letters words
 ```python
 test_string = "The Test string 123 121212 tinitiate TINITIATE a1b2c3"
 
 all_t = re.findall(r'\w+t\w+|\w+t|t\w+', test_string)
 ```
-# The re.findall returns a TUPLE and we print all the elements looping
-# through the tuple
+### The re.findall returns a TUPLE and we print all the elements looping
+### through the tuple
 ```python
 for lpr in all_t:
     print(lpr)
 ```
 
-# 3 sub Function
+### 3 sub Function
 ```python
 import re
 
-# This is used to replace parts of strings, with a pattern
+### This is used to replace parts of strings, with a pattern
 string = "Tinitiate good python examples"
 
-# Replace "good" with "great"
+### Replace "good" with "great"
 new_string = re.sub("good", "great", string)
 print(string)
 print(new_string)
 ```
 
-# 4 split Function
-# The split Function splits a string by spaces
+### 4 split Function
+### The split Function splits a string by spaces
 ```python
 import re
 
 words2list = re.split(r's', 'Tinitiate good python examples')
 print(words2list)
 
-# Split a Comma Separated String
+### Split a Comma Separated String
 csv2list = re.split(r',', '1,AAA,2000')
 print(csv2list)
 ```
@@ -99,135 +99,135 @@ print(csv2list)
 
 
 
-Title: python regular expressions patterns
-MetaKeywords: python, regular expressions patterns, code, tutorials
-Author: Venkata Bhattaram / tinitiate.com
-ContentName: python-regular-expressions-patterns
+## Title: python regular expressions patterns
+## MetaKeywords: python, regular expressions patterns, code, tutorials
+## Author: Venkata Bhattaram / tinitiate.com
+## ContentName: python-regular-expressions-patterns
 ---
 
-# PYTHON REGULAR EXPRESSIONS PATTERNS
-* Regular Expressions are string patterns to search in other strings
-* PYTHON Regular Expressions, functionality is provided by the "re" MODULE
-* This program demonstrates and explains various patterns of the 
+## PYTHON REGULAR EXPRESSIONS PATTERNS
+### Regular Expressions are string patterns to search in other strings
+### PYTHON Regular Expressions, functionality is provided by the "re" MODULE
+### This program demonstrates and explains various patterns of the 
   regular expressions   
-* Common Regular Expression patterns
-  * Match any single character using '.'
-  * Match start of line '^'
-  * Match END of line '$'
-  * Match any single character in brackets. [...]
-  * Match any single character NOT in brackets. [^...]
-  * Match Beginning of entire string '\\A'
-  * Match End of entire string except valid final line terminator CAPS(Z)'\\Z'
-  * Match 0 or more occurrences of preceding expression. '*'
-  * Match 1 or more of the preceding expression. '+'
-  * Match 0 or 1 occurrence of preceding expression. '?'
-  * Match exactly n number of occurrences of preceding expression. 'exp{n}'
-  * Match n or more occurrences of preceding expression. 'exp{n,}'
-  * Match exactly n occurrences and m times, of preceding expression.'exp{n,m}'
-  * Match X OR Y. 'X|Y'
-  * Match word characters '\\w'
-  * Match NON word characters '\\W'
-  * Match whitespace. Equivalent to [\t\n\r\f]. '\\s'
-  * Match NON whitespace. NOT Equivalent to [\t\n\r\f]. '\\S'
-  * Match digits. Equivalent to [0-9]. '\\d'
-  * Match NON digits. '\\D'
+### Common Regular Expression patterns
+### Match any single character using '.'
+### Match start of line '^'
+### Match END of line '$'
+### Match any single character in brackets. [...]
+### Match any single character NOT in brackets. [^...]
+### Match Beginning of entire string '\\A'
+### Match End of entire string except valid final line terminator CAPS(Z)'\\Z'
+### Match 0 or more occurrences of preceding expression. '*'
+### Match 1 or more of the preceding expression. '+'
+### Match 0 or 1 occurrence of preceding expression. '?'
+### Match exactly n number of occurrences of preceding expression. 'exp{n}'
+### Match n or more occurrences of preceding expression. 'exp{n,}'
+### Match exactly n occurrences and m times, of preceding expression.'exp{n,m}'
+### Match X OR Y. 'X|Y'
+### Match word characters '\\w'
+### Match NON word characters '\\W'
+### Match whitespace. Equivalent to [\t\n\r\f]. '\\s'
+### Match NON whitespace. NOT Equivalent to [\t\n\r\f]. '\\S'
+### Match digits. Equivalent to [0-9]. '\\d'
+### Match NON digits. '\\D'
 
 ```python
-# First STEP to use Regular Expressions in python import the "re" module
+### First STEP to use Regular Expressions in python import the "re" module
 import re
 
-# Matches any single character using '.'
+### Matches any single character using '.'
 TargetString = "ABCDEFG"
 RegExPattern = "B(.)D"
 ReplaceString = "BXD"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: ABXDEFG
 
-# Matches START of line '^'
+### Matches START of line '^'
 TargetString = " is a line."
 RegExPattern = "^"
 ReplaceString = "Here"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: Here is a line.
 
-# Matches END of line '$'
+### Matches END of line '$'
 TargetString = "This is a "
 RegExPattern = "$"
 ReplaceString = "line"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: This is a line
 
-# Matches any single character in brackets. [...]
+### Matches any single character in brackets. [...]
 TargetString = "SAT SIT SET"
 RegExPattern = "S[AI]T"
 ReplaceString = "SXT"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: SXT SXT SET
 
-# Matches any single character NOT in brackets. [^...]
+### Matches any single character NOT in brackets. [^...]
 TargetString = "SAT SIT SET"
 RegExPattern = "S[^AI]T"
 ReplaceString = "SXT"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: SAT SIT SXT
 
-# Matches Beginning of entire string '\\A'
+### Matches Beginning of entire string '\\A'
 TargetString = "there was PASCAL"
 RegExPattern = "\\A"
 ReplaceString = "Once upon a time "
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: Once upon a time there was PASCAL
 
-# Matches End of entire string '\\Z'
+### Matches End of entire string '\\Z'
 TargetString = "there was \n"
 RegExPattern = "\\Z"
 ReplaceString = "PASCAL."
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: there was \nPASCAL.
 
-# Matches 0 or more occurrences of preceding expression. '*'
+### Matches 0 or more occurrences of preceding expression. '*'
 TargetString = "JA is Cool, JAJA is Cool"
 RegExPattern = "J*"
 ReplaceString = "JAVA"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)
 
-# Matches 1 or more of the preceding expression. '+'
+### Matches 1 or more of the preceding expression. '+'
 TargetString = "JA is Cool, JAJA is Cool"
 RegExPattern = "J+"
 ReplaceString = "JAVA"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)
 
-# Matches X OR Y. 'X|Y'
+### Matches X OR Y. 'X|Y'
 TargetString = "ERLANG is great"
 RegExPattern = "(ERLANG|SCALA)"
 ReplaceString = "JAVA"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: JAVA is great
 
-# Matches word characters '\\w'
+### Matches word characters '\\w'
 TargetString = "Java is great"
 RegExPattern = "(\\w)"
 ReplaceString = "JAVA"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)
 
-# Matches whitespace '\\s'
+### Matches whitespace '\\s'
 TargetString = "Java is        great"
 RegExPattern = "(\\s)"
 ReplaceString = "JAVA"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)
 
-# Matches digits '\\d'
+### Matches digits '\\d'
 TargetString = "Java is Number 1 !!"
 RegExPattern = "(\\d)"
 ReplaceString = "one"
 retValue = re.sub(RegExPattern, ReplaceString, TargetString)
 print(retValue)  # OUTPUT: Java is Number one !!
 
-# Matches NON digits '\\D'
+### Matches NON digits '\\D'
 TargetString = "1a2b3"
 RegExPattern = "(\\D)"
 ReplaceString = "JAVA"
