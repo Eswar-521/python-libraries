@@ -3,7 +3,6 @@
 ## **Objective**
 This Python script determines the **day of the week** for **February 9th** over the past **10 years**.
 
----
 
 ## **Code Breakdown**
 **Importing the Required Module**
@@ -56,7 +55,7 @@ year = year - 1
 ##  Expected Output
 For example, if the script runs in 2025, it will output:
 
--mathematica
+- mathematica
 - Copy
 - Edit
 - 02092025
@@ -72,8 +71,6 @@ For example, if the script runs in 2025, it will output:
 
 
 
-
-
 ##  Timezone Conversion in Python Using `pytz`
 
 ###  **Objective**
@@ -81,7 +78,7 @@ This Python script demonstrates how to:
 - Convert a **given date and time** into different time zones using the `pytz` library.
 - Localize a datetime object to specific time zones.
 
----
+
 
 ## **Code Breakdown**
 
@@ -217,13 +214,10 @@ print('India Date Timezone:', india_date.tzinfo)
 
 
 ### Working with Dates and Times in Python
-
-Python provides powerful `datetime` and `timedelta` modules to perform date and time calculations such as:
+- Python provides powerful `datetime` and `timedelta` modules to perform date and time calculations such as:
 - Subtracting dates
 - Finding differences in days, hours, minutes, and seconds
 - Adding time to a date
-
----
 
 ## Import Required Modules
 ```python
@@ -297,9 +291,8 @@ print("D3 + 5 Seconds:", newDate.strftime(formatADT))
 
 Python's `datetime` module provides useful methods to work with dates, extract specific parts of a date, and get the current timestamp.
 
----
 
-### 1. Get Today's Date
+### Get Today's Date
 ```python
 from datetime import date
 ```
@@ -308,7 +301,7 @@ today = date.today()
 print(today) 
 - Example Output: 2025-03-12
 
-### 2. Extract Specific Date Components
+### Extract Specific Date Components
 
 ```python
 ### Print day, month, and year
@@ -324,7 +317,7 @@ print(today.weekday())
 - `today.year`: Returns the year.
 - `today.weekday()`: Returns the day of the week as an  integer `(0 = Monday, 6 = Sunday)`.
   
-### 3. Get the UNIX Epoch Time
+### Get the UNIX Epoch Time
 ```python
 import time
 ```
@@ -334,8 +327,7 @@ print(time.time())  # Example Output: 1707520502.8757482
 ```
 - time.time(): Returns the number of seconds since the - UNIX epoch (January 1, 1970, 00:00:00 UTC).
 - This is useful for timestamps, time calculations, and performance measurement.
-
-
+```
 
 
 
@@ -346,7 +338,6 @@ print(time.time())  # Example Output: 1707520502.8757482
 
 Python's `strftime()` method is used to format date and time into readable string representations.
 
----
 
 ### **Format Specifiers in `strftime()`**
 | Specifier | Description |
@@ -408,7 +399,6 @@ print(s)  # Example Output: 12-Mar-2025 14:30:45
 
 Python’s `strftime()` function allows formatting date and time into string representations.
 
----
 
 ### Format Specifiers in `strftime()`
 | Specifier | Description |
@@ -438,7 +428,7 @@ Python’s `strftime()` function allows formatting date and time into string rep
 | `%Z`  | Time zone name |
 | `%%`  | A literal `%` character |
 
----
+
 
 ## Convert Date to String Using `strftime()`
 
@@ -510,7 +500,7 @@ else:
 
 Python's `timedelta` allows us to **add** or **subtract** dates and times easily. Below is a demonstration:
 
----
+
 
 ### Subtracting Dates
 
@@ -586,7 +576,7 @@ print("D3 + 5 Seconds:", newDate.strftime(formatADT))
 
 Generators allow us to **iterate over data lazily**, improving memory efficiency. Below are different generator demonstrations.
 
----
+
 
 ### Basic Generator Example
 
