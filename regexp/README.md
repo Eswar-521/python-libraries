@@ -2,7 +2,6 @@
 ## MetaDescription: python regular, expressions, code, tutorials
 ## Author: Venkata Bhattaram / tinitiate.com
 ## ContentName: python-regular-expressions
----
 
 ### PYTHON REGULAR EXPRESSIONS BASICS
 ### Regular Expressions are string patterns to search in other strings
@@ -40,7 +39,7 @@ if match:
 else:
     print("The word '12*' is NOT found in the string:", "\n", test_string)
 ```
-### 2 findall Function
+### findall Function
 ```python
 import re
 ```
@@ -65,7 +64,7 @@ for lpr in all_t:
     print(lpr)
 ```
 
-### 3 sub Function
+### sub Function
 ```python
 import re
 
@@ -78,7 +77,7 @@ print(string)
 print(new_string)
 ```
 
-### 4 split Function
+### split Function
 ### The split Function splits a string by spaces
 ```python
 import re
@@ -103,13 +102,12 @@ print(csv2list)
 ## MetaKeywords: python, regular expressions patterns, code, tutorials
 ## Author: Venkata Bhattaram / tinitiate.com
 ## ContentName: python-regular-expressions-patterns
----
+
 
 ## PYTHON REGULAR EXPRESSIONS PATTERNS
 ### Regular Expressions are string patterns to search in other strings
 ### PYTHON Regular Expressions, functionality is provided by the "re" MODULE
-### This program demonstrates and explains various patterns of the 
-  regular expressions   
+### This program demonstrates and explains various patterns of the regular expressions   
 ### Common Regular Expression patterns
 ### Match any single character using '.'
 ### Match start of line '^'
@@ -247,52 +245,51 @@ print(retValue)  # OUTPUT: 1JAVA2JAVA3
 
 
 
-Title: python regular expressions multiple patterns
-MetaKeywords: python, regular expressions multiple patterns, code, tutorials
-Author: Venkata Bhattaram / tinitiate.com
-ContentName: python-regular-expressions-multiple
----
+## Title: python regular expressions multiple patterns
+## MetaKeywords: python, regular expressions multiple patterns, code, tutorials
+## Author: Venkata Bhattaram / tinitiate.com
+## ContentName: python-regular-expressions-multiple
 
-# PYTHON REGULAR EXPRESSIONS MULTIPLE PATTERNS IN WORDS OF STRING
-* Here we demonstrate use cases for multiple pattern matching in words of 
-  a given string.
-* Matching String Pattern "Starts with"
-* Matching String Pattern "Ends with"
-* Matching String Pattern "Has pattern inbetween"
-* Matching String with multiple Patterns (Using an Pattern1 OR Pattern2)
+
+## PYTHON REGULAR EXPRESSIONS MULTIPLE PATTERNS IN WORDS OF STRING
+- Here we demonstrate use cases for multiple pattern matching in words of a given string.
+- Matching String Pattern "Starts with"
+- Matching String Pattern "Ends with"
+- Matching String Pattern "Has pattern inbetween"
+- Matching String with multiple Patterns (Using an Pattern1 OR Pattern2)
 
 ```python
 import re
 
 my_string = 'Hour01 Min22 VOIDDDDD Sec29 BLAH min3erere Hour32 OTHERS Min33 Hour32'
 
-# String Pattern Match Exact word
+## String Pattern Match Exact word
 Hour32 = re.findall(r'Hour32', my_string)
 for word in Hour32:
     print(word)
 
-# Word Pattern Starts with
+## Word Pattern Starts with
 starting_h = re.findall(r'\bH+\w+.\b', my_string)
 for word in starting_h:
     print(word)
 
-# Word Pattern Ends with
+## Word Pattern Ends with
 ending_2 = re.findall(r'\b\w+2\b', my_string)
 for word in ending_2:
     print(word)
 
-# Word Pattern has pattern
+## Word Pattern has pattern
 has_3 = re.findall(r'\w*3\w*', my_string)
 for c in has_3:
     print(c)
 
-# Word with multiple Patterns (Using an Pattern1 OR Pattern2)
+## Word with multiple Patterns (Using an Pattern1 OR Pattern2)
 has_ou_OI = re.findall(r'\w*OI\w*|\w*ur\w*', my_string)
 for c in has_ou_OI:
     print(c)
 ```
 
-# PYTHON REGULAR EXPRESSIONS MULTIPLE PATTERNS IN STRING
+## PYTHON REGULAR EXPRESSIONS MULTIPLE PATTERNS IN STRING
 * Here we demonstrate use cases for multiple pattern matching in a given string.
 * Matching String Pattern "Starts with"
 * Matching String Pattern "Ends with"
@@ -302,29 +299,29 @@ for c in has_ou_OI:
 ```python
 import re
 
-# String Pattern Match with Exact word
+## String Pattern Match with Exact word
 my_string = 'Hour01 Min22 VOIDDDDD Sec29 BLAH min3erere Hour32 OTHERS Min33 Hour32'
 Hour32 = re.findall(r'Hour32', my_string)
 for word in Hour32:
     print(word)
 
-# String Pattern Match with Exact word using search
+## String Pattern Match with Exact word using search
 test_string = 'Hour01 Min22 VOIDDDDD Sec29 BLAH min3erere Hour32 OTHERS Min33 Hour32'
 Hour32 = re.search('Hour32', test_string)
 if Hour32:
     print(test_string)
 
-# String Pattern Starts with
+## String Pattern Starts with
 starting_h = re.search('H*$', test_string)
 if starting_h:
     print(test_string)
 
-# String Pattern Ends with
+## String Pattern Ends with
 ending_2 = re.search('2$', test_string)
 if ending_2:
     print(test_string)
 
-# String with multiple Patterns (Using an Pattern1 OR Pattern2)
+## String with multiple Patterns (Using an Pattern1 OR Pattern2)
 has_OIur = re.search('OI|ur', test_string)
 if has_OIur:
     print(test_string)
@@ -342,14 +339,14 @@ if has_OIur:
 
 
 
----
-Title: Python Iterators and Generators  
-MetaDescription: Python regular expressions, code, tutorials  
-Author: Venkata Bhattaram / tinitiate.com  
-ContentName: python-regular-expressions  
----
 
-# **PYTHON REGULAR EXPRESSIONS BASICS**
+## Title: Python Iterators and Generators  
+## MetaDescription: Python regular expressions, code, tutorials  
+## Author: Venkata Bhattaram / tinitiate.com  
+## ContentName: python-regular-expressions  
+
+
+## **PYTHON REGULAR EXPRESSIONS BASICS**
 - Regular Expressions are **string patterns** used for searching in other strings.
 - Python's **Regular Expressions** functionality is provided by the **`re`** module.
 - The **`re`** module provides functions required for working with Regular Expressions.
@@ -361,17 +358,17 @@ ContentName: python-regular-expressions
 3. **`sub()`** – Used to **replace** parts of strings that match a pattern.
 4. **`split()`** – Splits a string based on **space** or any delimiter.
 
----
 
-## **1) `search()` Function**
+
+## **`search()` Function**
 ```python
 import re
 ```
-# Create a test string
+## Create a test string
 
 - test_string = "The Test string 123 121212 tinitiate TINITIATE a1b2c3"
 
-# Search for pattern: 'tinitiate' (lowercase only)
+## Search for pattern: 'tinitiate' (lowercase only)
 - match = re.search(r'tinitiate', test_string)
 ```python
 if match:
@@ -379,7 +376,7 @@ if match:
 else:
     print("The word 'tinitiate' is NOT found in the string:", "\n", test_string)
 ```
-# Search for pattern: '12*' where '*' is a wildcard character
+## Search for pattern: '12*' where '*' is a wildcard character
 
 - match = re.search(r'12*', test_string)
 ```python
@@ -389,44 +386,44 @@ else:
     print("The pattern '12*' is NOT found in the string:", "\n", test_string)
 ```
 
-# 2 findall() Function
+## findall() Function
 ```python
 import re
 
-# Test string
+## Test string
 test_string = "The Test string 123 121212 tinitiate TINITIATE a1b2c3"
 
-# Find all words with 't' in different positions
+## Find all words with 't' in different positions
 all_t = re.findall(r'\w+t\w+|\w+t|t\w+', test_string)
 
-# Print all matches
+## Print all matches
 for word in all_t:
     print(word)
 ```
 
-# 3 sub() Function
+## sub() Function
 ```python
 import re
 
-# Sample string
+## Sample string
 string = "Tinitiate good python examples"
 
-# Replace 'good' with 'great'
+## Replace 'good' with 'great'
 new_string = re.sub("good", "great", string)
 
 print(string)      # Original string
 print(new_string)  # Modified string
 ```
 
-# 4 split() Function
+## split() Function
 ```python
 import re
 
-# Split string by 's'
+## Split string by 's'
 words2list = re.split(r's', 'Tinitiate good python examples')
 print(words2list)
 
-# Split CSV formatted string
+## Split CSV formatted string
 csv2list = re.split(r',', '1,AAA,2000')
 print(csv2list)
 ```
@@ -436,14 +433,13 @@ print(csv2list)
 
 
 
----
-Title: Python Regular Expressions - Match Exact Word
-MetaKeywords: python, regular expressions, exact word match, pattern matching
-Author: Your Name
-ContentName: python-regex-exact-word
----
 
-# Python Regular Expressions - Match Exact Word in a String
+## Title: Python Regular Expressions - Match Exact Word
+## MetaKeywords: python, regular expressions, exact word match, pattern matching
+## Author: Your Name
+## ContentName: python-regex-exact-word
+
+## Python Regular Expressions - Match Exact Word in a String
 
 This script demonstrates how to use Python regular expressions to find words containing the number "3" in a given string.
 
