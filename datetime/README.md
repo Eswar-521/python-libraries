@@ -7,19 +7,19 @@ This Python script determines the **day of the week** for **February 9th** over 
 
 ## 📝 **Code Breakdown**
 
-### 1️⃣ **Importing the Required Module**
+ 1️⃣ **Importing the Required Module**
 ```python
 import datetime
 ```
 - The datetime module provides functions to work with dates and times.
-  
-- ### 2️⃣ Defining the Fixed Date Format
+
+   2️⃣ Defining the Fixed Date Format
 ```python
 dtm = "0209"
 ```
 - Stores the month (02 for February) and the day (09) as a string.
   
-- ### 3️⃣ Getting the Current Year
+  3️⃣ Getting the Current Year
 ```python
 today = datetime.datetime.today()
 year = today.strftime("%Y")
@@ -30,21 +30,21 @@ year = int(year)
 - int(year) converts the year into an integer for calculations.
   
 
-- ### 4️⃣ Looping Over the Last 10 Years
+   4️⃣ Looping Over the Last 10 Years
 ```python
 for c in range(11):  # Loop for 11 iterations (Current Year + Last 10 Years)
 ```
 - The loop runs 11 times (including the current year).
 - Each iteration calculates the day of the week for February 9th of a specific year.
   
-- ### 5️⃣ Generating the Date String
+  5️⃣ Generating the Date String
 ```python
 dt_str = dtm + str(year)  # "0209" + "2024" → "02092024"
 print(dt_str)
 ```
 - Concatenates dtm (fixed "0209") with year to form a date string in MMDDYYYY format.
 
-- ### 6️⃣ Converting String to Date and Printing the Day Name
+  6️⃣ Converting String to Date and Printing the Day Name
 ```python
 t1 = datetime.datetime.strptime(dt_str, "%m%d%Y")
 print(t1.strftime("%A"))
@@ -52,7 +52,7 @@ print(t1.strftime("%A"))
 - strptime(dt_str, "%m%d%Y") converts the string into a datetime object.
 - strftime("%A") extracts the full weekday name (e.g., "Monday").
 
-- ## 7️⃣ Updating the Year for the Next Iteration
+  7️⃣ Updating the Year for the Next Iteration
 ```python
 year = year - 1
 ```
