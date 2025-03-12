@@ -46,7 +46,7 @@ os.chdir(my_dir)
 print(os.getcwd())
 ```
 
-###Python List All Files and Directories in a Given Path
+### Python List All Files and Directories in a Given Path
 ### Using `os.walk()` we can list all Files and Folders in a given folder path 
 ```python
 import os
@@ -65,11 +65,9 @@ all_folders = []
 
 ### Loop through all Files and Folders in a Given Path [mypath variable]
 for (dirpath, dirnames, filenames) in walk(mypath):
-    
-    ### Capture all files and store in list all_files
+### Capture all files and store in list all_files
     all_files.extend(filenames)
-    
-    ### Capture all files and store in list all_folders
+### Capture all files and store in list all_folders
     all_folders.extend(dirnames)
 
 ### Print all files and folders lists
@@ -85,7 +83,7 @@ import os
 # New Directory Path
 new_dir = "f:\\NewDir"
 
-### Create Directory with mkdir
+## Create Directory with mkdir
 os.mkdir(new_dir)
 
 ### Check if folder exists
@@ -686,59 +684,57 @@ print("Folders:", all_folders)
 
 ### **File Handling in Python using `with open()` Statement**
 
-### **1️⃣ Reading from a File**
+### **Reading from a File**
 ```python
 with open('E:\\python-master\\media\\003-python-modules\\data.csv', 'r') as f:
     contents = f.read()
     print(contents)
 ```
-🔹 Opens `data.csv` in **read (`'r'`) mode** and prints the contents.
+Opens `data.csv` in **read (`'r'`) mode** and prints the contents.
 
 ---
 
-### **2️⃣ Appending to a File**
+### **Appending to a File**
 ```python
 with open('E:\\python-master\\media\\003-python-modules\\data.txt', 'a') as f:
     f.write('Welcome to Tinitiate.\n')
 ```
-🔹 Opens `data.txt` in **append (`'a'`) mode** and adds a new line at the end.
+Opens `data.txt` in **append (`'a'`) mode** and adds a new line at the end.
 
 ---
 
-### **3️⃣ Writing to a File**
+### **Writing to a File**
 ```python
 with open('E:\\python-master\\media\\003-python-modules\\data.txt', 'w') as f:
     f.write('Hello, Tinitiate!')
 ```
-🔹 Opens `data.txt` in **write (`'w'`) mode**, **overwriting** existing content.
+Opens `data.txt` in **write (`'w'`) mode**, **overwriting** existing content.
 
 ---
 
-### **4️⃣ Creating a New File**
+### **Creating a New File**
 ```python
 with open('E:\\python-master\\media\\003-python-modules\\data_new.txt', 'x') as f:
     f.write('Welcome to Tinitiate!\n')
 ```
-🔹 Opens `data_new.txt` in **exclusive creation (`'x'`) mode**. 
-🔹 Fails if the file already exists.
+Opens `data_new.txt` in **exclusive creation (`'x'`) mode**. 
+Fails if the file already exists.
 
----
-
-### **5️⃣ Reading & Writing Using `r+` Mode**
+### **Reading & Writing Using `r+` Mode**
 ```python
 with open('file.txt', 'r+') as f:
-    # Read the file
-    data = f.read()
-    
-    # Write to the file
-    f.write('Hello, World!')
+# Read the file
+data = f.read()
+
+# Write to the file
+f.write('Hello, World!')
 ```
-🔹 Opens `file.txt` in **read & write (`'r+'`) mode**. 
-🔹 Reads the content first, then writes at the end of the file.
+Opens `file.txt` in **read & write (`'r+'`) mode**. 
+Reads the content first, then writes at the end of the file.
 
 ---
 
-### **📌 Summary of File Modes in Python**
+### **Summary of File Modes in Python**
 | Mode | Description |
 |------|------------|
 | `'r'` | Read mode (default) |
@@ -783,8 +779,8 @@ print("File Size is", size_in_MB, "MB")
 ```python
 l_ctr = 0
 with open(l_filename) as infile:
-    for line in infile:
-        l_ctr += 1
+for line in infile:
+l_ctr += 1
 
 print(l_ctr)
 ```
