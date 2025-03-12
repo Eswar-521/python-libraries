@@ -1,4 +1,4 @@
-# Reading a CSV File in Python
+## Reading a CSV File in Python
 
 ## Code
 
@@ -17,7 +17,7 @@ with open('D:/training/PythonFeb2024/code/python-libraries/csv/data.csv', 'r') a
 ```
 
 
-# Explanation:
+## Explanation:
 **Import CSV Module** 
 ```Python 
 import csv 
@@ -59,7 +59,7 @@ print(line['LastName'])
 <!-- csv_dict_writer -->
 
 
-#  Writing a CSV File Using `csv.DictWriter` 
+##  Writing a CSV File Using `csv.DictWriter` 
 
 ### **Python Code**
 ```python
@@ -82,7 +82,7 @@ with open('E:\\python-master\\media\\003-python-modules\\data.csv', 'r') as csv_
             csv_writer.writerow(line)
 ```
 
-# Explanation
+## Explanation
 
 **Import the CSV Module** 
 ```python
@@ -132,7 +132,7 @@ for line in csv_reader:
 <!-- csv_reader -->
 
 
-# Reading a CSV File in Python Using `csv.reader`
+## Reading a CSV File in Python Using `csv.reader`
 
 ## **Python Code**
 ```python
@@ -155,7 +155,7 @@ with open('D:/training/PythonFeb2024/code/python-libraries/csv/data.csv', 'r') a
         print(line[2])
 ```
 
-# Explanation
+## Explanation
 **Import the CSV Module**
 ```python
 import csv
@@ -208,7 +208,7 @@ print(line[2])
 
 <!-- csv_writer.py-->
 
-# Python CSV File Read 
+## Python CSV File Read 
 ```python
 import csv
 with open('D:/training/PythonFeb2024/code/python-libraries/csv/data.csv', 'r') as csv_file:
@@ -226,7 +226,7 @@ with open('D:/training/PythonFeb2024/code/python-libraries/csv/data.csv', 'r') a
             csv_writer.writerow(line)
 ```
 
-# Explanation 
+## Explanation 
 **Importing Required Library**
 ```python
 import csv
