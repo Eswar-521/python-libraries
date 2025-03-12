@@ -22,7 +22,7 @@ print("Text entered: " + l_UserInput)
 
 
 
-# Multi-line User Input in Python
+## Multi-line User Input in Python
 
 ## Overview
 - This script allows the user to enter multiple lines of input.
@@ -53,7 +53,7 @@ print(data)
 
 
 
-# Reading Command Line Arguments in Python
+## Reading Command Line Arguments in Python
 
 ## Overview
 - The `sys.argv` list stores all command-line arguments passed to the script.
@@ -84,7 +84,7 @@ print(commandline_args_list)
 
 
 
-# Adding Two Numbers in Python
+## Adding Two Numbers in Python
 
 ## Overview
 - This script demonstrates three ways to pass numbers to a function:
@@ -102,19 +102,19 @@ import sys
 def add2nums(n1, n2):
     print(n1 + n2)
 ```
-# 1. Directly Call with values in the script
+## 1. Directly Call with values in the script
 ```python
 add2nums(n1=100, n2=33)
 ```
-# 2. Get values using input(),
-# REMEMBER input data is all STRINGS, Convert to the required datatype
+## 2. Get values using input(),
+## REMEMBER input data is all STRINGS, Convert to the required datatype
 ```python
 in_n1 = int(input("Enter value for n1: "))
 in_n2 = int(input("Enter value for n2: "))
 add2nums(n1=in_n1, n2=in_n2)
 ```
-# 3. Get values using command-line arguments
-# REMEMBER sys.argv LIST data is all STRINGS, Convert to the required datatype
+## 3. Get values using command-line arguments
+## REMEMBER sys.argv LIST data is all STRINGS, Convert to the required datatype
 ```python
 inputs = sys.argv
 add2nums(n1=int(inputs[1]), n2=int(inputs[2]))
