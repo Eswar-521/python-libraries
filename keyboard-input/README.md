@@ -67,16 +67,16 @@ print(data)
 ```python
 import sys
 ```
-### The sys.argv returns all the arguments passed to the python script
-### , DELIMITED (Separator) by SPACE in this list.
+#### The sys.argv returns all the arguments passed to the python script
+#### DELIMITED (Separator) by SPACE in this list.
 ```python
 commandline_args_list = sys.argv
 
 print(commandline_args_list)
 ```
-### Call the program using:
-### $ python script_name.py argument1 argument2
-### The FIRST element in the list is the file path and name
+#### Call the program using:
+#### $ python script_name.py argument1 argument2
+#### The FIRST element in the list is the file path and name
 
 
 
@@ -102,19 +102,19 @@ import sys
 def add2nums(n1, n2):
     print(n1 + n2)
 ```
-## 1. Directly Call with values in the script
+#### 1. Directly Call with values in the script
 ```python
 add2nums(n1=100, n2=33)
 ```
-## 2. Get values using input(),
-## REMEMBER input data is all STRINGS, Convert to the required datatype
+#### 2. Get values using input(),
+#### REMEMBER input data is all STRINGS, Convert to the required datatype
 ```python
 in_n1 = int(input("Enter value for n1: "))
 in_n2 = int(input("Enter value for n2: "))
 add2nums(n1=in_n1, n2=in_n2)
 ```
-## 3. Get values using command-line arguments
-## REMEMBER sys.argv LIST data is all STRINGS, Convert to the required datatype
+#### 3. Get values using command-line arguments
+#### REMEMBER sys.argv LIST data is all STRINGS, Convert to the required datatype
 ```python
 inputs = sys.argv
 add2nums(n1=int(inputs[1]), n2=int(inputs[2]))
