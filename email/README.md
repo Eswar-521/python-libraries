@@ -133,8 +133,7 @@ s.quit()
 username = your-email@gmail.com
 password = your-app-password
 ```
-
--**Note:**
+**Note:**
 
 - Replace your-email@gmail.com with your actual Gmail address.
 - Replace your-app-password with a valid App Password (not your Gmail login password).
