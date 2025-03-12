@@ -1,6 +1,6 @@
-# Python Logging Example
+## Python Logging Example
 
-## Overview
+### Overview
 This script demonstrates how to set up and use Python's built-in logging module. It:
 - Creates a logging object.
 - Configures a console stream handler.
@@ -10,33 +10,33 @@ This script demonstrates how to set up and use Python's built-in logging module.
 
 ---
 
-## Python Code
+### Python Code
 
 ```python
 import sys, logging
 ```
-# Create a LOGGING Object
+### Create a LOGGING Object
 ```python
 tiConsLog = logging.getLogger('tinitiate-console')
 ```
-# Create a StreamHandler for the LOGGING Object
+### Create a StreamHandler for the LOGGING Object
 ```python
 ConsHandler = logging.StreamHandler(sys.__stdout__)
 ```
-# Set Log Formatting
+### Set Log Formatting
 ```python
 formatter = logging.Formatter('[%(asctime)s] %(name)-12s: %(levelname)-8s %(message)s')
 ConsHandler.setFormatter(formatter)
 ```
-# Add the Console Handler to the LOGGING Object
+### Add the Console Handler to the LOGGING Object
 ```python
 tiConsLog.addHandler(ConsHandler)
 ```
-# Set Log Level
+### Set Log Level
 ```python
 tiConsLog.setLevel(logging.DEBUG)
 ```
-# Log messages at different levels
+### Log messages at different levels
 ```python
 tiConsLog.debug('This is a debug message')
 tiConsLog.info('This is an info message')
@@ -44,7 +44,7 @@ tiConsLog.warning('This is a warning message')
 tiConsLog.error('This is an error message')
 tiConsLog.critical('This is a critical message')
 ```
-# Change Log level and retry logging all levels
+### Change Log level and retry logging all levels
 ```python
 tiConsLog.setLevel(logging.ERROR)
 
@@ -62,7 +62,7 @@ tiConsLog.critical('This is a critical message')
 
 
 
-# Python File Logging Example
+### Python File Logging Example
 
 ## Overview
 This script demonstrates:
@@ -78,43 +78,43 @@ This script demonstrates:
 import sys, logging
 import time
 ```
-# Create a LOGGING Object
+### Create a LOGGING Object
 ```python
 tiFileLog = logging.getLogger('tinitiate-file')
 ```
-# Generate a log filename with a timestamp
+### Generate a log filename with a timestamp
 ```python
 l_log_file_name = "app_log" + str(time.time()) + ".log"
 ```
-# Create a Log File Handler
+### Create a Log File Handler
 ```python
 LogFile = logging.FileHandler('D:/training/PythonFeb2024/' + l_log_file_name)
 ```
-# Set Log Formatting
+### Set Log Formatting
 ```python
 formatter = logging.Formatter('[%(asctime)s] %(name)-12s: %(levelname)-8s %(message)s')
 LogFile.setFormatter(formatter)
 ```
-# Add the handler to the logging object
+### Add the handler to the logging object
 ```python
 tiFileLog.addHandler(LogFile)
 ```
-# Set Log Level
+### Set Log Level
 ```python
 tiFileLog.setLevel(logging.DEBUG)
 ```
-# Run Log messages
+### Run Log messages
 ```python
 tiFileLog.debug('This is a debug message')
 tiFileLog.info('This is an info message')
 tiFileLog.warning('This is a warning message')
 ```
-# Only the following messages are logged to the file
+### Only the following messages are logged to the file
 ```python
 tiFileLog.error('This is an error message')
 tiFileLog.critical('This is a critical message')
 ```
-# Function-Based Logging
+### Function-Based Logging
 ```python
 def add2nums(n1, n2, log_obj):
     try:
@@ -128,7 +128,7 @@ tiFileLog.debug('Starting Adder')
 add2nums(12, 22, tiFileLog)  # Pass logger object as parameter
 add2nums('a', 22, tiFileLog)  # Will trigger an error
 ```
-# Object-Oriented Logging
+### Object-Oriented Logging
 ```python
 class MathOperations:
     def __init__(self, p_log_obj):
