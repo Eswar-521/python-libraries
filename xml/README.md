@@ -255,10 +255,10 @@ for tinitiate_element in tinitiate_elements:
 
 ## Parsing an XML File Using `xml.sax` in Python
 
-### Overview
+## Overview
 This Python script demonstrates how to parse an XML file using `xml.sax`. It defines a custom content handler class that processes XML elements, extracts data, and prints attribute values.
 
-### Code
+## Code
 
 ```python
 import xml.sax
@@ -334,16 +334,12 @@ SAXprocessXML('E:/python-master/media/003-python-modules/test-data.xml')
 
 
 
-
-
-
-
 # XML Validation Using XSD Schema in Python
 
-## Overview
+# Overview
 This Python script demonstrates how to validate an XML file against an XSD schema using the `xmlschema` module. It loads both files, checks their validity, and logs the results.
 
-## Code
+# Code
 
 ```python
 import logging
@@ -374,12 +370,12 @@ if is_valid:
     print("The XML data is valid according to the XSD schema.")
 else:
     print("The XML data is not valid according to the XSD schema.")
-    print(schema.validate(xml_data))
+    print(schema.validate(xml_data)) 
 ```
 
-## Explanation
+# Explanation
 
-## 1 Import Required Modules
+# 1 Import Required Modules
 
 - `logging:` Provides logging capabilities (not fully used in this example).
 xmlschema: Handles XML validation against XSD.
