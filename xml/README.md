@@ -1,85 +1,79 @@
----
-Title: Python Avro File Handling
-MetaKeywords: python, avro, serialization, deserialization, schema, binary file
-Author: Your Name
-ContentName: python-avro-file-handling
----
+## Writing an Avro File in Python
 
-# Python Avro File Handling
+### Overview
+This Python script demonstrates how to create and write an Avro file using the `avro` library. It defines a schema, parses it, and initializes a writer for storing data in an Avro binary file.
 
-## Overview
+### Code
 
-- **Apache Avro** is a data serialization system that provides rich data structures and compact, fast serialization.
-- Avro stores data in a binary format along with its schema.
-- The **Avro schema** is defined in JSON format.
-
----
-
-## Prerequisites
-
-Before running the script, install the `avro-python3` package:
-
-```bash
-pip install avro-python3
-```
-## Code Example
 ```python
 import uuid
 import avro.schema
 import json
 from avro.datafile import DataFileReader, DataFileWriter
 from avro.io import DatumReader, DatumWriter
-```
-# Define Avro binary file path
-```python
-avro_binary_file = "E:\\code\\python\\avro\\users.avro"
-```
-# Define the Avro schema in JSON format
-```python
-avro_schema = """{
+
+# Define the Avro binary file path
+l_avro_binary_file = "E:\\code\\python\\avro\\users.avro"
+
+# Define the Avro schema as a JSON string
+l_schema = """{
     "namespace": "example.avro",
     "type": "record",
     "name": "User",
     "fields": [
-        {"name": "name", "type": "string"},
-        {"name": "favorite_number", "type": ["int", "null"]},
-        {"name": "favorite_color", "type": ["string", "null"]}
-    ]
+         {"name": "name", "type": "string"},
+         {"name": "favorite_number", "type": ["int", "null"]},
+         {"name": "favorite_color", "type": ["string", "null"]}
+     ]
 }"""
-```
-# Parse the Avro schema
-```python
-write_schema = avro.schema.Parse(json.dumps(json.loads(avro_schema)))
-```
-# Create an Avro data file writer
-```python
-writer = DataFileWriter(open(avro_binary_file, "wb"), DatumWriter(), write_schema)
+
+# Parse the schema
+write_schema = avro.schema.Parse(json.dumps(json.loads(l_schema)))
+
+# Initialize the Avro writer
+writer = DataFileWriter(open(l_avro_binary_file, "wb"), DatumWriter(), write_schema)
+
+# Close the writer (No data is written yet)
 writer.close()
 ```
-# Explanation
-## 1 Import Required Modules
-- uuid: Generates unique identifiers.
-- avro.schema: Parses the Avro schema.
-- json: Handles JSON encoding and decoding.
-- avro.datafile: Reads and writes Avro data files.
-- avro.io: Handles Avro data encoding and decoding.
 
-- ## 2 Define the Avro Schema
+### Explanation
+## 1 Importing Required Modules
+ -  `uuid:` Generates unique identifiers (not used in this example).
+ -  `avro.schema:` Handles Avro schema parsing.
+ -  `avro.datafile.DataFileReader` & `DataFileWriter:` Read and write Avro files
+ -  `json:` Used to parse and manipulate JSON data.
+ -  `avro.io.DatumReader` & `DatumWriter:` Serialize and deserialize Avro data.
+  
+## 2 Defining the Avro Binary File Path
 
-- The schema defines a User record with three fields:
-name (string)
-- favorite_number (integer or null)
-- favorite_color (string or null)
+- The file path E:\\code\\python\\avro\\users.avro specifies where the Avro data will be stored.
 
-
-## 3 Parse the Schema
-
-- Convert the schema JSON into an Avro schema object.
-## 4 Write the Avro File
-- Create a DataFileWriter to write data into the Avro file.
-- The file is created but does not yet contain records.
+## 3 Defining the Avro Schema
+- The schema is written in JSON format and describes the structure of the records:
+- `name:` A required string field.
+- `favorite_number:` An optional integer field (nullable).
+- `favorite_color:` An optional string field (nullable).
 
 
+## 4 Parsing the Schema
+
+- `json.loads(l_schema):` Converts the schema string into a JSON object.
+- `json.dumps(...):` Converts the JSON object back into a string.
+- `avro.schema.Parse(...):` Parses the schema into an Avro schema object.
+  
+## 5 Initializing the Avro Writer
+- `DataFileWriter(open(l_avro_binary_file, "wb"), DatumWriter(), write_schema):`
+- Opens the file in write-binary `(wb)` mode.
+- Uses `DatumWriter()` to handle record serialization.
+- Uses the parsed schema to define the data structure.
+## 6 Closing the Writer
+- `writer.close():` Closes the writer to finalize the file.
+- Note: No data has been written yet.
+
+## Next Steps
+- To write records, use writer.append(data) before closing the writer.
+- To read Avro files, use DataFileReader.
 
 
 
@@ -88,54 +82,38 @@ name (string)
 
 
 
----
-Title: Python XML File Generation
-MetaKeywords: python, xml, etree, elementtree, parsing, file writing
-Author: Your Name
-ContentName: python-xml-file-generation
----
 
-# Python XML File Generation
+## Generating and Writing an XML File Using Python
 
-## Overview
+### Overview
+This Python script demonstrates how to generate an XML structure using the `xml.etree.ElementTree` module. It creates an XML document with structured elements and writes it to a file.
 
-- This script demonstrates how to **generate an XML file** using Python's `xml.etree.ElementTree` module.
-- The generated XML contains structured data, including **training courses** and **code descriptions**.
-
----
-
-## Prerequisites
-
-- Python 3.x installed
-
-No additional libraries are required as `xml.etree.ElementTree` is part of Python’s standard library.
-
----
-
-## Code Example
+### Code
 
 ```python
 import xml.etree.ElementTree as ET
 
 # Generate the XML File
-
 # Create Root Element
 root_element = ET.Element("tinitiate")
 
-# Create 'training' sub-element
+# Create a 'training' Sub-element
 training_element = ET.SubElement(root_element, "training")
 
-# Add 'course' sub-elements under 'training'
+# Add Course Elements under 'training'
 course_element1 = ET.SubElement(training_element, "course")
 course_element1.text = 'JAVA'
+
 course_element2 = ET.SubElement(training_element, "course")
 course_element2.text = 'UNIX'
+
 course_element3 = ET.SubElement(training_element, "course")
 course_element3.text = 'PERL'
+
 course_element4 = ET.SubElement(training_element, "course")
 course_element4.text = 'PYTHON'
 
-# Add 'code' sub-elements with attributes
+# Create 'code' elements with attributes
 code_element1 = ET.SubElement(root_element, "code")
 code_element1.set("id", str(1))
 code_element1.text = 'Python XML Parsing'
@@ -144,142 +122,126 @@ code_element2 = ET.SubElement(root_element, "code")
 code_element2.set("id", str(2))
 code_element2.text = 'Python File Writing'
 
-# Convert XML structure to a string
-xml_data = ET.tostring(root_element, encoding='unicode')
+# Convert the XML structure to a string
+mydata = ET.tostring(root_element, encoding='unicode')
 
 # Print the generated XML
-print(xml_data)
+print(mydata)
 
-# Write the Generated XML to a file
-output_file_path = "E:\\python-master\\media\\test-data-OUT.xml"
-with open(output_file_path, "w") as myfile:
-    myfile.write(xml_data)
+# Write the Generated XML to a File
+myfile = open("E:\\python-master\\media\\test-data-OUT.xml", "w")
+myfile.write(mydata)
+myfile.close()
 ```
 
+## Explanation 
+## 1 Importing the `xml.etree.ElementTree` Module
+- This module provides methods to create and manipulate XML data.
 
-# Explanation 
-  # 1 Create Root Element (<tinitiate>)
+## 2 Creating the Root Element
 
-- This is the main container for the XML document.
-# 2 Add a <training> Section
+- `ET.Element("tinitiate")` creates the root `<tinitiate>` element.
 
-- Contains multiple <course> elements representing different training topics.
-# 3 Add a <code> Section
+## 3 Adding a Sub-element for Training
 
-- Contains multiple <code> elements with an id attribute and a text description.
-# 4 Convert XML to String
+- `ET.SubElement(root_element, "training")` creates a child element `<training>`.
 
-- The ET.tostring() function converts the XML structure into a string for output.
-# 5 Write XML to a File
+## 4 Adding Course Elements under <training>
 
-- The generated XML is saved as test-data-OUT.xml at the specified location.
+- Each `<course>` element is added as a child of `<training>`.
+- `.text` assigns values `(JAVA, UNIX, PERL, PYTHON)`.
+## 5 Adding Code Elements with Attributes
 
+- `ET.SubElement(root_element, "code")` creates `<code>` elements.
 
+- `set("id", str(1))` assigns an id attribute.
+- `text` contains the description.
+## 6 Converting the XML Structure to a String
 
+- `ET.tostring(root_element, encoding='unicode')` converts the XML into a string format.
+## 7 Writing XML to a File
 
-
-
-
-
-
-
+- Opens the file in write mode and saves the XML content.
 
 
 
----
-Title: Python XML Parsing using minidom
-MetaKeywords: python, xml, minidom, parsing, DOM, xml parsing
-Author: Your Name
-ContentName: python-xml-parsing-minidom
----
 
-# Python XML Parsing using `minidom`
 
-## Overview
 
-- This script demonstrates how to **parse an XML file** using Python's `xml.dom.minidom` module.
-- It extracts **tags, elements, attributes**, and **reads the content** within the XML file.
 
----
 
-## Prerequisites
 
-- Python 3.x installed
-- An XML file to parse (e.g., `test-data.xml`)
+## Parsing an XML File Using `xml.dom.minidom` in Python
 
----
+### Overview
+This Python script demonstrates how to parse an XML file using `xml.dom.minidom`. It reads an XML document, extracts elements by tag names, and retrieves both element values and attributes.
 
-## Code Example
+### Code
 
 ```python
 from xml.dom import minidom
-
-# Create a DOM object by reading the XML file
-# Note: Change the path based on the XML file location
+```
+### Create a DOM object by reading the XML file
+### Change the file path to the correct location
+```python
 xmldoc = minidom.parse('E:/python-master/media/003-python-modules/test-data.xml')
-
-# Print the document node and name of the first child tag
+```
+### Print the document node and name of the first child tag
+```python
 print(xmldoc.nodeName)
 print(xmldoc.firstChild.tagName)
-
-# Extract Tag and its Elements by Tag Name
-
-# Extract the "tinitiate" element and its children
-tinitiate_elements = xmldoc.getElementsByTagName("tinitiate")
-
-# Loop through a Tag Element and Read Underlying Elements / Attributes
-
-# Iterate through the "tinitiate" elements
-for tinitiate_element in tinitiate_elements:
-
-    # Extract "training" elements
-    training_elements = tinitiate_element.getElementsByTagName("training")
-
-    # Get values from the "training" elements
-    for training_element in training_elements:
-
-        # Extract "course" elements
-        course_elements = training_element.getElementsByTagName("course")
-
-        # Print the values of the "course" elements
-        for course_element in course_elements:
-            # Each course element has one child node at the lowest level, so use index ZERO
-            print(course_element.childNodes[0].nodeValue)
-
-    # Reading Attributes in the "code" Elements
-    
-
-    # Extract "code" elements
-    code_elements = xmldoc.getElementsByTagName("code")
-
-    # Print the total count of "code" elements
-    print("Total Count of 'CODE' elements in XML: ", len(code_elements))
-
-    # Loop through the "code" elements
-    for code_element in code_elements:
-
-        # Print the attributes of each "code" element
-        print(code_element.attributes["id"].value)
-        
-        # Print the node value of each "code" element
-        print(code_element.childNodes[0].nodeValue)
 ```
 
-# Explanation
+### Extract Tag and its elements By Tag Name
 
-## 1 Load XML File into DOM
+### Extract the TINITIATE element and its children from the XML document
+```python
+tinitiate_elements = xmldoc.getElementsByTagName("tinitiate")
+```
 
-- The minidom.parse() function loads the XML file into a DOM object.
-## 2 Extract Root Element Information
+### Loop through a Tag Element and read underlying Elements / Attributes
+### Since we know the "tinitiate" element has children, we use a loop
+```python
+for tinitiate_element in tinitiate_elements:
 
-- xmldoc.nodeName and xmldoc.firstChild.tagName print the root node details.
-## 3 Extract Specific Tags and Their Children
+    # Extract the "training" elements
+    training_elements = tinitiate_element.getElementsByTagName("training")
 
-- The script extracts elements using getElementsByTagName().
-- It loops through training and course elements, printing course names.
-## 4 Read Attributes from Elements
+    # Get values from the "training" elements list
+    for training_element in training_elements:
 
-- It fetches all <code> elements and prints their id attribute values.
+        # Extract the "course" elements within "training"
+        course_elements = training_element.getElementsByTagName("course")
+
+        # Print values of the "course" elements
+        for course_element in
+```
+
+## Explanation 
+### 1 Importing the `xml.dom.minidom` Module
+
+- This module provides a lightweight way to parse and navigate XML documents.
+### 2 Reading an XML File
+
+- `minidom.parse('E:/python-master/media/003-python-modules/test-data.xml')` loads the XML file.
+### 3 Extracting Document and First Child Information
+
+- `nodeName` retrieves the document node name.
+- `firstChild` tagName retrieves the first element's tag name.
+### 4 Extracting Elements by Tag Name
+
+- `getElementsByTagName("tinitiate")` finds all <tinitiate> elements.
+- `getElementsByTagName("training")` finds <training> elements inside <tinitiate>.
+- `getElementsByTagName("course")` finds <course> elements inside <training>.
+### 5 Retrieving and Printing Course Names
+
+- Loops through each <course> element.
+- Extracts and prints nodeValue (the text inside the tag).
+### 6 Reading Attributes in the <code> Element
+
+- `getElementsByTagName("code")` extracts <code> elements.
+- `attributes["id"]`.value retrieves the id attribute.
+- `childNodes[0]`.nodeValue retrieves the text inside <code>.
 
 
 
@@ -291,37 +253,12 @@ for tinitiate_element in tinitiate_elements:
 
 
 
+## Parsing an XML File Using `xml.sax` in Python
 
+### Overview
+This Python script demonstrates how to parse an XML file using `xml.sax`. It defines a custom content handler class that processes XML elements, extracts data, and prints attribute values.
 
-
-
-
-
-
----
-Title: Python XML Parsing using SAX
-MetaKeywords: python, xml, SAX, parsing, xml.sax, event-driven XML parsing
-Author: Your Name
-ContentName: python-xml-parsing-sax
----
-
-# Python XML Parsing using `xml.sax`
-
-## Overview
-
-- This script demonstrates how to **parse an XML file** using Python's `xml.sax` (Simple API for XML).
-- `xml.sax` is an **event-driven** parser that reads XML data **sequentially** without loading the entire document into memory.
-
----
-
-## Prerequisites
-
-- Python 3.x installed
-- An XML file to parse (e.g., `test-data.xml`)
-
----
-
-## Code Example
+### Code
 
 ```python
 import xml.sax
@@ -335,63 +272,60 @@ class TIContentHandler(xml.sax.ContentHandler):
         # Initialize a variable to keep track of the current element being parsed
         self.CurrentData = ""
         
-    # This method is called every time a new element is encountered in the XML file
+    # Called when an element starts
     def startElement(self, name, attrs):
-        # Print the name of the element
         print("startElement :" + name)
-        # Update the value of the current data variable
         self.CurrentData = name
-        # If the current element is "code", print its "id" attribute value
+        # Print the "id" attribute if the element is "code"
         if name == "code":
             print("\tattribute id=" + attrs.getValue("id"))
     
-    # This method is called every time character data is encountered inside an element
+    # Called when text content is found within an element
     def characters(self, content):
-        # If the current element is "course", print its value
         if self.CurrentData == "course":
             print(content)
-        # If the current element is "code", print its value
         if self.CurrentData == "code":
             print(content)
 
-    # This method is called every time the end of an element is encountered
+    # Called when an element ends
     def endElement(self, name):
-        # Print the name of the element
         print("endElement:"  + name)
 
 
-# This function processes an XML file using the SAX parser and the TIContentHandler class
+# Function to process an XML file using the SAX
 def SAXprocessXML(sourceFileName):
-  # Open the XML file for reading
-  source = open(sourceFileName)
-  # Parse the XML file using the SAX parser and the TIContentHandler class
-  xml.sax.parse(source, TIContentHandler())
+    # Open the XML file for reading
+    source = open(sourceFileName)
+    # Parse the XML file using the SAX parser
+    xml.sax.parse(source, TIContentHandler())
 
-# Call the SAXprocessXML function with the path to the XML file as an argument
-# Note: Change the folder to where the file is located
+# Call the function with the XML file path
+# Note: Update the path to match your XML file location
 SAXprocessXML('E:/python-master/media/003-python-modules/test-data.xml')
 ```
 
 
+## Explanation
 
-# Explanation
-1. Creating a Custom SAX Handler
-- The class TIContentHandler inherits from xml.sax.ContentHandler.
-Implements three key methods:
-- `startElement(self, name, attrs):`
-- Called when a new XML element is encountered.
-- Prints the element name and attributes (if available).
-- `characters(self, content):`
-- Called when character data is encountered inside an element.
-- Prints the content of <course> and <code> elements.
-- `endElement(self, name):`
-- Called when an element ends.
-- Prints the closing element name.
-2. Parsing XML using SAX
-- The SAXprocessXML(sourceFileName) function:
+## 1 Importing xml.sax
+
+- `xml.sax` provides an event-driven XML parsing approach.
+## 2 Creating a Custom Content Handler (TIContentHandler)
+
+- Inherits from `xml.sax.ContentHandler.`
+- Handles three main SAX events:
+- `startElement(self, name, attrs)`: Called at the beginning of an XML element.
+- `characters(self, content)`: Called when text content is found.
+- `endElement(self, name)`: Called at the end of an XML element.
+## 3 Extracting Data
+
+- `startElement():` Prints the element name and extracts attributes.
+- `characters():` Prints text content inside course and code elements.
+- `endElement()`: Prints the closing tag.
+## 4 Processing XML File with SAXprocessXML()
+
 - Opens the XML file.
-- Passes it to xml.sax.parse() along with TIContentHandler.
-- Sample XML File (test-data.xml)
+- Calls `xml.sax.parse()` to parse the file using `TIContentHandler`
 
 
 
@@ -404,32 +338,13 @@ Implements three key methods:
 
 
 
-
-
----
-Title: Python XML Validation using XSD
-MetaKeywords: python, xml, xsd, xmlschema, validation, logging
-Author: Your Name
-ContentName: python-xml-validation-xsd
----
-
-# Python XML Validation using XSD
+# XML Validation Using XSD Schema in Python
 
 ## Overview
+This Python script demonstrates how to validate an XML file against an XSD schema using the `xmlschema` module. It loads both files, checks their validity, and logs the results.
 
-- This script demonstrates how to **validate an XML file** against an **XSD schema** using Python's `xmlschema` module.
-- Validation ensures that the XML data conforms to the defined structure and rules in the **XSD file**.
+## Code
 
----
-
-## Prerequisites
-
-- Python 3.x installed
-- Install the `xmlschema` module:
-```python
-  pip install xmlschema
-```
-# Code Example 
 ```python
 import logging
 import xmlschema
@@ -462,15 +377,25 @@ else:
     print(schema.validate(xml_data))
 ```
 
-## Explanation 
-- # 1 Loading the XSD Schema
-- The script attempts to load the XSD file (product.xsd) using xmlschema.XMLSchema(xsd_file).
-If the file is missing or invalid, an error message is displayed.
-- # 2. Loading the XML File
-- Reads the XML file (product.xml).
-- If the file is missing or unreadable, an error message is displayed.
-# 3. Validating the XML Against the XSD
-- The is_valid(xml_data) method checks whether the XML conforms to the schema.
-- If validation fails, schema.validate(xml_data) returns error messages.
+## Explanation
+
+## 1 Import Required Modules
+
+- `logging:` Provides logging capabilities (not fully used in this example).
+xmlschema: Handles XML validation against XSD.
+## 2 Load the XSD Schema
+
+- The script attempts to load product.xsd.
+- If it fails, an exception is caught and printed.
+## 3 Load the XML Data
+
+- The script reads product.xml.
+- If the file cannot be read, an exception is raised.
+## 4 Validate XML Against XSD
+
+- `The schema.is_valid(xml_data)` function checks if the XML conforms to the XSD.
+- If valid, it prints a success message.
+- If invalid, it prints an error message and the validation errors.
+
 
 
