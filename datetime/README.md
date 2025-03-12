@@ -1,25 +1,22 @@
-## 🕰️ DateTime Assignment: Finding the Day of February 9th for the Last 10 Years
+## DateTime Assignment: Finding the Day of February 9th for the Last 10 Years
 
-## 📌 **Objective**
+## **Objective**
 This Python script determines the **day of the week** for **February 9th** over the past **10 years**.
 
 ---
 
-## 📝 **Code Breakdown**
-
- 1️⃣ **Importing the Required Module**
+## **Code Breakdown**
+**Importing the Required Module**
 ```python
 import datetime
 ```
 - The datetime module provides functions to work with dates and times.
-
-   2️⃣ Defining the Fixed Date Format
+- Defining the Fixed Date Format
 ```python
 dtm = "0209"
 ```
 - Stores the month (02 for February) and the day (09) as a string.
-  
-  3️⃣ Getting the Current Year
+**Getting the Current Year**
 ```python
 today = datetime.datetime.today()
 year = today.strftime("%Y")
@@ -29,22 +26,21 @@ year = int(year)
 - strftime("%Y") extracts the current year as a string.
 - int(year) converts the year into an integer for calculations.
   
-
-   4️⃣ Looping Over the Last 10 Years
+**Looping Over the Last 10 Years**
 ```python
 for c in range(11):  # Loop for 11 iterations (Current Year + Last 10 Years)
 ```
 - The loop runs 11 times (including the current year).
 - Each iteration calculates the day of the week for February 9th of a specific year.
   
-  5️⃣ Generating the Date String
+**Generating the Date String**
 ```python
 dt_str = dtm + str(year)  # "0209" + "2024" → "02092024"
 print(dt_str)
 ```
 - Concatenates dtm (fixed "0209") with year to form a date string in MMDDYYYY format.
 
-  6️⃣ Converting String to Date and Printing the Day Name
+**Converting String to Date and Printing the Day Name**
 ```python
 t1 = datetime.datetime.strptime(dt_str, "%m%d%Y")
 print(t1.strftime("%A"))
@@ -52,12 +48,12 @@ print(t1.strftime("%A"))
 - strptime(dt_str, "%m%d%Y") converts the string into a datetime object.
 - strftime("%A") extracts the full weekday name (e.g., "Monday").
 
-  7️⃣ Updating the Year for the Next Iteration
+**Updating the Year for the Next Iteration**
 ```python
 year = year - 1
 ```
 - Decreases the year by 1 to move to the previous year.
-- ##  Expected Output
+##  Expected Output
 For example, if the script runs in 2025, it will output:
 
 -mathematica
@@ -78,18 +74,18 @@ For example, if the script runs in 2025, it will output:
 
 
 
-## ⏰ Timezone Conversion in Python Using `pytz`
+##  Timezone Conversion in Python Using `pytz`
 
-### 📌 **Objective**
+###  **Objective**
 This Python script demonstrates how to:
 - Convert a **given date and time** into different time zones using the `pytz` library.
 - Localize a datetime object to specific time zones.
 
 ---
 
-## 📝 **Code Breakdown**
+## **Code Breakdown**
 
-### 1️⃣ **Importing Required Modules**
+### **Importing Required Modules**
 ```python
 import datetime
 import pytz
@@ -97,7 +93,7 @@ import pytz
 - datetime is used to handle date and time operations.
 - pytz is a library for working with timezone conversions.
 
-### 2️⃣ Defining Timezones
+### Defining Timezones
 ```python
 tz1 = "Asia/Qyzylorda"
 tz2 = "America/Caracas"
@@ -107,15 +103,15 @@ tz3 = "W-SU"
 - tz2: America/Caracas (Venezuela Time)
 - tz3: W-SU (Old Soviet Union timezone, now mostly equivalent to Europe/Moscow)
 
-### 3️⃣ Defining a Date and Time String
+### Defining a Date and Time String
 ```python
 str_datetime = '2019-05-15 12:00:00'
 l_date_time = datetime.datetime.strptime(str_datetime, '%Y-%m-%d %H:%M:%S')
 ```
 - str_datetime is a string representation of the datetime.
 - strptime() converts this string into a datetime object.
-### 4️⃣ Assigning Timezones and Localizing the Datetime
-🏙️ Localizing to tz1 (Asia/Qyzylorda)
+### Assigning Timezones and Localizing the Datetime
+### Localizing to tz1 (Asia/Qyzylorda)
 ```python
 tzd1 = pytz.timezone(tz1)
 d1_tz = tzd1.localize(l_date_time)
@@ -123,21 +119,21 @@ print(d1_tz)
 ```
 - Creates a timezone object using pytz.timezone(tz1).
 - localize() assigns Asia/Qyzylorda's timezone to l_date_time.
-- ### 🌎 Localizing to tz2 (America/Caracas)
+###  Localizing to tz2 (America/Caracas)
 ```python
 tzd2 = pytz.timezone(tz2)
 d2_tz = tzd2.localize(l_date_time)
 print(d2_tz)
 ```
 - Converts l_date_time to America/Caracas timezone.
-- ### 🏛️ Localizing to tz3 (W-SU)
+###  Localizing to tz3 (W-SU)
 ```python
 tzd3 = pytz.timezone(tz3)
 d3_tz = tzd3.localize(l_date_time)
 print(d3_tz)
 ```
-- Converts l_date_time to W-SU timezone.
-- ### Expected Output
+- Converts l_date_time to W-SU timezone
+## Expected Output
 - If you run this script, you will see output similar to:
 
 - Copy
@@ -157,12 +153,12 @@ print(d3_tz)
 
 ## Working with Timezones in Python using `pytz`
 
-### 📌 Import Required Modules
+###  Import Required Modules
 ```python
 import datetime
 import pytz
 ```
-### 🌍 Creating a Date with a Specific Timezone
+### Creating a Date with a Specific Timezone
 - Python allows you to work with different timezones using the pytz module. Below, we create  a datetime object and assign it the Eastern Standard Time (EST) timezone.
 
 ```python
@@ -180,7 +176,7 @@ est_date = EST_TimeZone.localize(l_date_time)
 print('EST Date:', est_date)
 print('EST Date Timezone:', est_date.tzinfo)
 ```
-### 🔄 Converting a DateTime from One Timezone to Another
+### Converting a DateTime from One Timezone to Another
 Let's take a date in Eastern Standard Time (EST) and convert it to GMT/UTC and Indian Standard Time (IST).
 
 ```python
@@ -220,7 +216,7 @@ print('India Date Timezone:', india_date.tzinfo)
 
 
 
-### 🕒 Working with Dates and Times in Python
+### Working with Dates and Times in Python
 
 Python provides powerful `datetime` and `timedelta` modules to perform date and time calculations such as:
 - Subtracting dates
@@ -229,12 +225,12 @@ Python provides powerful `datetime` and `timedelta` modules to perform date and 
 
 ---
 
-## 📌 Import Required Modules
+## Import Required Modules
 ```python
 import datetime
 from datetime import timedelta  
 ```
-## 📅 Subtracting Dates
+## Subtracting Dates
 - Let's define two dates and calculate the difference in various units.
 ```python
 ### Define two date strings
@@ -264,7 +260,7 @@ print("Difference in Hours:", diff_in_hours)
 print("Difference in Minutes:", diff_in_minutes)
 print("Difference in Seconds:", diff_in_seconds)
 ```
-### ➕ Adding to Date-Time
+### Adding to Date-Time
 - Let's take a date-time and add days, hours, minutes, and seconds to it.
 ```python
 ### Define a date-time string
@@ -297,13 +293,13 @@ print("D3 + 5 Seconds:", newDate.strftime(formatADT))
 
 
 
-## 📅 Working with Dates in Python
+## Working with Dates in Python
 
 Python's `datetime` module provides useful methods to work with dates, extract specific parts of a date, and get the current timestamp.
 
 ---
 
-### 🕒 1. Get Today's Date
+### 1. Get Today's Date
 ```python
 from datetime import date
 ```
@@ -312,7 +308,7 @@ today = date.today()
 print(today) 
 - Example Output: 2025-03-12
 
-### 🔍 2. Extract Specific Date Components
+### 2. Extract Specific Date Components
 
 ```python
 ### Print day, month, and year
@@ -328,7 +324,7 @@ print(today.weekday())
 - `today.year`: Returns the year.
 - `today.weekday()`: Returns the day of the week as an  integer `(0 = Monday, 6 = Sunday)`.
   
-### ⏳ 3. Get the UNIX Epoch Time
+### 3. Get the UNIX Epoch Time
 ```python
 import time
 ```
@@ -346,13 +342,13 @@ print(time.time())  # Example Output: 1707520502.8757482
 
 
 
-## 📅 Python `strftime()`: Convert Date and Time to String
+## Python `strftime()`: Convert Date and Time to String
 
 Python's `strftime()` method is used to format date and time into readable string representations.
 
 ---
 
-### 📝 **Format Specifiers in `strftime()`**
+### **Format Specifiers in `strftime()`**
 | Specifier | Description |
 |-----------|-------------|
 | `%a`  | Abbreviated weekday name (e.g., Mon) |
@@ -378,7 +374,7 @@ Python's `strftime()` method is used to format date and time into readable strin
 | `%Y`  | Year with century (e.g., 2025) |
 | `%z`
 
-## ⏳ **Convert Date to String Using `strftime()`**
+## **Convert Date to String Using `strftime()`**
 ```python
 import datetime
 
@@ -408,13 +404,13 @@ print(s)  # Example Output: 12-Mar-2025 14:30:45
 
 
 
-## 📅 Python `strftime()`: Convert DATE and TIME to String
+## Python `strftime()`: Convert DATE and TIME to String
 
 Python’s `strftime()` function allows formatting date and time into string representations.
 
 ---
 
-### 📝 Format Specifiers in `strftime()`
+### Format Specifiers in `strftime()`
 | Specifier | Description |
 |-----------|-------------|
 | `%a`  | Abbreviated weekday name (e.g., Mon) |
@@ -444,7 +440,7 @@ Python’s `strftime()` function allows formatting date and time into string rep
 
 ---
 
-## ⏳ Convert Date to String Using `strftime()`
+## Convert Date to String Using `strftime()`
 
 ```python
 import datetime
@@ -477,13 +473,10 @@ print(s)  # Example Output: Tuesday
 
 
 
-### ⏳ Python `time` Module: Date Comparisons and Checking
-
+### Python `time` Module: Date Comparisons and Checking
 - Python's `datetime` module allows us to compare dates easily. Below is a demonstration of how to compare two dates.
 
----
-
-### 📌 Date Comparison Example
+### Date Comparison Example
 
 ```python
 import datetime
@@ -513,13 +506,13 @@ else:
 
 
 
-## 📆 Python `datetime`: Add & Subtract Dates/Times using `timedelta`
+## Python `datetime`: Add & Subtract Dates/Times using `timedelta`
 
 Python's `timedelta` allows us to **add** or **subtract** dates and times easily. Below is a demonstration:
 
 ---
 
-### ⏳ Subtracting Dates
+### Subtracting Dates
 
 ```python
 import datetime
@@ -553,7 +546,7 @@ print("Difference in Minutes:", diff_in_minutes)
 print("Difference in Seconds:", diff_in_seconds)
 ```
 
-## ⏩ Adding to Date & Time
+## Adding to Date & Time
 ```python
 # Define a datetime string
 D3_str = '2016-07-21 12:30:22'
@@ -589,13 +582,13 @@ print("D3 + 5 Seconds:", newDate.strftime(formatADT))
 
 
 
-## 🔄 Python Generators: `yield` Function
+## Python Generators: `yield` Function
 
 Generators allow us to **iterate over data lazily**, improving memory efficiency. Below are different generator demonstrations.
 
 ---
 
-### 📌 Basic Generator Example
+### Basic Generator Example
 
 ```python
 ### Function converted to a generator using yield
@@ -614,7 +607,7 @@ print(myIter.__next__())  # Output: 44
 ```
 
 
-## 🔁 Using yield Inside a Loop
+## Using yield Inside a Loop
 ```python
 ### Generator function using a loop
 def GeneratorDemo1():
@@ -632,7 +625,7 @@ print(myIter.__next__())  # Output: 4
 print(myIter.__next__())  # Output: 5
 ```
 
-## 🔢 Dynamic Generator: Even & Odd Numbers
+## Dynamic Generator: Even & Odd Numbers
 ```python
 ### Create a dynamic generator
 def EvenOddNum(MAX):
@@ -655,7 +648,7 @@ print(myIter.__next__())  # Output: 4 is Even Number
 print(myIter.__next__())  # Output: 5 is Odd Number
 
 ### This will raise a StopIteration error as MAX is 5
-print(myIter.__next__())  # ❌ ERROR: No more values to yield
+print(myIter.__next__())  # ERROR: No more values to yield
 ```
 
 
