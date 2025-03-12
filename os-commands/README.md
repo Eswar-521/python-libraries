@@ -1,6 +1,6 @@
-# OS Module in Python
+## OS Module in Python
 
-## Execute OS Commands Using `os.system`
+### Execute OS Commands Using `os.system`
 
 ### **Overview**
 The `os` module in Python allows interaction with the operating system.  
@@ -12,24 +12,24 @@ We can use `os.system()` to execute system commands directly from a Python scrip
 ```python
 import os
 ```
-# String to store the OS command
+### String to store the OS command
 
 - OScommand = "echo Tinitiate.com"
 
-# Run the OS command using system function
+### Run the OS command using system function
 - os.system(OScommand)
 
 
 
-# Explanation
-- # 1 Import the OS Module
+### Explanation
+- ### 1 Import the OS Module
 
 - import os allows us to access system functionalities.
 Define the Command
 
-- # 2 OScommand = "echo Tinitiate.com"
+- ### 2 OScommand = "echo Tinitiate.com"
 - This command prints "Tinitiate.com" to the terminal.
-- # 3 Execute the Command
+- ### 3 Execute the Command
 
 - os.system(OScommand) runs the command in the shell.
 
@@ -45,27 +45,27 @@ Define the Command
 
 
 
-# Python Error Handling - ZeroDivisionError
+## Python Error Handling - ZeroDivisionError
 
-## **Overview**
+### **Overview**
 This script demonstrates:
 1. **Standard Output** using `print()`
 2. **ZeroDivisionError** caused by dividing a number by zero.
 
 ## **Python Code**
 ```python
-# Output
+### Output
 print("Output Message from os_test.py")
 
-# ZeroDivisionError
+### ZeroDivisionError
 a = 1 / 0
 
 ```
-# Explanation
-- # 1 Print Output
+### Explanation
+- ### 1 Print Output
 - print("Output Message from os_test.py")
 - This will print a message to the console.
-- # 2 ZeroDivisionError
+- ### 2 ZeroDivisionError
 
 - a = 1 / 0
 - This line will raise a ZeroDivisionError since division by zero is not allowed in Python.
@@ -75,7 +75,7 @@ a = 1 / 0
 
 
 
-# Python Execute OS Command with SubProcess Module
+### Python Execute OS Command with SubProcess Module
 
 ## **Overview**
 This script demonstrates different ways to execute OS commands using the `subprocess` module in Python.
@@ -86,16 +86,16 @@ This script demonstrates different ways to execute OS commands using the `subpro
 ```python
 import subprocess
 ```
-# Simple subprocess.call example
+### Simple subprocess.call example
 - subprocess.call(['echo', 'Hello Tinitiate'], shell=True)
 
-# Using subprocess.Popen
-## Key Differences from call
+## Using subprocess.Popen
+### Key Differences from call
 - Popen does not block execution; the script continues running.
 - To make it wait, use .wait().
 - Can be used to capture Standard Output (stdout) and Standard Error (stderr).
-# Capturing Standard Output
-# Capture Standard Output
+### Capturing Standard Output
+### Capture Standard Output
 ```python
 (standard_output, standard_error) = subprocess.Popen(
     ['echo', 'Hello World!'],
@@ -104,15 +104,15 @@ import subprocess
     shell=True
 ).communicate()
 
-# Print output and error
+### Print output and error
 print(standard_output)
 print(standard_error)
 ```
 
 
-# Capturing Standard Error
+### Capturing Standard Error
 ```python
-# Execute an INVALID command to generate an error
+### Execute an INVALID command to generate an error
 (standard_output, standard_error) = subprocess.Popen(
     ['eco', 'Error'],  # Incorrect command (intentional error)
     stdout=subprocess.PIPE,
@@ -120,15 +120,15 @@ print(standard_error)
     shell=True
 ).communicate()
 
-# Print output and error
+### Print output and error
 print(standard_output)
 print(standard_error)
 ```
 
 
-# Executing a Python Script
+### Executing a Python Script
 ```python
-# Execute an external Python script
+### Execute an external Python script
 (standard_output, standard_error) = subprocess.Popen(
     ['python', 'D:/training/PythonFeb2024/code/python-libraries/os-commands/os_test.py'],
     stdout=subprocess.PIPE,
@@ -136,12 +136,12 @@ print(standard_error)
     shell=True
 ).communicate()
 
-# Print output and error
+### Print output and error
 print(standard_output)
 print(standard_error)
 ```
 
-# Expected Output
+### Expected Output
 ```python
 Hello Tinitiate
 b'Hello World!\r\n'
@@ -158,9 +158,9 @@ ZeroDivisionError: division by zero
 ```
 
 
-# Subprocess `wait()`
+### Subprocess `wait()`
 
-## **Overview**
+### **Overview**
 - The `wait()` method in the `subprocess.Popen` class **waits** for the process to complete and returns the **exit code**.
 - When a process is started using `Popen`, it runs **asynchronously** in the background.
 - `wait()` ensures that the process **finishes execution** before the next line of code runs.
@@ -168,11 +168,11 @@ ZeroDivisionError: division by zero
 
 ---
 
-## **Example: Using `wait()`**
+### **Example: Using `wait()`**
 ```python
 import subprocess
 ```
-# Start a subprocess to execute an OS command
+### Start a subprocess to execute an OS command
 ```python
 process = subprocess.Popen(
     ['echo', 'Hello World!'],
@@ -181,21 +181,21 @@ process = subprocess.Popen(
     shell=True
 )
 ```
-# Capture standard output and error
+### Capture standard output and error
 ```python
 output, error = process.communicate()
 ```
-# Wait for the process to complete
+### Wait for the process to complete
 ```python
 process.wait()
 ```
-# Print the output and error
+### Print the output and error
 ```python
 print("Output:", output.decode().strip())  # Decoding bytes to string
 print("Error:", error.decode().strip())    # Decoding bytes to string
 ```
 
-# Explanation
+### Explanation
 - `Popen` starts the command asynchronously.
 - `communicate()` captures standard output `(stdout) `and standard error `(stderr)`.
 - `wait()` ensures the command has fully executed before moving forward.
